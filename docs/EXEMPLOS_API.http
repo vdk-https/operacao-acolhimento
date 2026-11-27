@@ -1,0 +1,20 @@
+@base = http://127.0.0.1:5000
+@token = SUBSTITUA_PELA_CHAVE_LOCAL
+GET {{base}}/api/registros
+###
+POST {{base}}/api/registros
+Content-Type: application/json
+X-API-Key: {{token}}
+
+{"grupo":"Grupo Alfa","necessidade":"Agua","observacao":"Cenario de acolhimento simulado.","prioridade":"alto"}
+###
+PUT {{base}}/api/registros/1
+Content-Type: application/json
+X-API-Key: {{token}}
+
+{"situacao":"resolvido"}
+###
+DELETE {{base}}/api/registros/1
+X-API-Key: {{token}}
+###
+GET {{base}}/api/clima
