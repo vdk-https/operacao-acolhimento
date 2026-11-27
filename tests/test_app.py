@@ -1,9 +1,9 @@
 """Testes automatizados isolados: repositório e API externa simulados.
-Não alegam comprovar um MySQL real ou disponibilidade da Open-Meteo.
+Não alegam comprovar um MongoDB real ou disponibilidade da Open-Meteo.
 """
 import pytest
 pytest.importorskip("flask")
-pytest.importorskip("mysql.connector")
+import pymongo
 from app import create_app
 from core.validation import validar_registro, ValidationError
 

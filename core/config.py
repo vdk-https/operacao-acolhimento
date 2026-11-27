@@ -6,11 +6,8 @@ from dotenv import load_dotenv
 def load_settings():
     load_dotenv()
     return {
-        "DB_HOST": os.getenv("MYSQL_HOST", "127.0.0.1"),
-        "DB_PORT": int(os.getenv("MYSQL_PORT", "3306")),
-        "DB_USER": os.getenv("MYSQL_USER", "acolhimento"),
-        "DB_PASSWORD": os.getenv("MYSQL_PASSWORD", ""),
-        "DB_NAME": os.getenv("MYSQL_DATABASE", "acolhimento_db"),
+        "MONGO_URI": os.getenv("MONGO_URI", "mongodb://127.0.0.1:27017"),
+        "DB_NAME": os.getenv("MONGO_DATABASE", "acolhimento_db"),
         "WRITE_TOKEN": os.getenv("API_WRITE_TOKEN", ""),
         "LOG_PATH": os.getenv("LOG_PATH", "logs/acoes.log"),
         "APP_HOST": os.getenv("APP_HOST", "127.0.0.1"),

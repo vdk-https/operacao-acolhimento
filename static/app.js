@@ -70,7 +70,7 @@ async function carregar() {
     $("abertos").textContent = String(cacheRegistros.filter(o => o.situacao === "aberto").length);
     $("altos").textContent = String(cacheRegistros.filter(o => o.prioridade === "alto").length);
     desenharLista(cacheRegistros);
-  } catch (e) { $("lista").textContent = "Não foi possível carregar. Verifique se o MySQL foi configurado."; mostrar(e.message, true); }
+  } catch (e) { $("lista").textContent = "Não foi possível carregar. Verifique se o MongoDB foi configurado."; mostrar(e.message, true); }
 }
 async function carregarClima() {
   try {

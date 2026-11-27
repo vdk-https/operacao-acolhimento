@@ -4,7 +4,7 @@ import hashlib
 import logging
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
-import mysql.connector
+from pymongo.errors import PyMongoError
 import requests
 from flask import Flask, jsonify, render_template, request
 from werkzeug.exceptions import HTTPException
@@ -134,7 +134,7 @@ def create_app(repo=None, weather_fetcher=None, settings=None):
         registrar(request.method, "DADOS_INVALIDOS")
         return jsonify({"erro": str(erro)}), 422
 
-    @app.errorhandler(mysql.connector.Error)
+    @app.errorhandler(PyMongoError)
     def erro_banco(erro):
         registrar(request.method, "FALHA_BANCO")
         return jsonify({"erro": "Serviço de dados temporariamente indisponível."}), 503
